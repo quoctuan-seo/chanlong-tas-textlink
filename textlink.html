@@ -5,33 +5,25 @@
 <style>
 /* Layout: khung trang PLSB (thẻ sơ đồ 1 + thẻ phân bổ sidebar), màu đồng bộ mô hình TAS Chan Long: đỏ nâu link về site, vàng link nuôi, kem tầng đích */
 :root{
-  --bg:#F6F1E7; --surface:#FFFFFF; --ink:#2B1620; --muted:#6F6168; --line:#E6DCC4;
+  --bg:#FFFFFF; --surface:#FFFFFF; --ink:#2B1620; --muted:#6F6168; --line:#EDE4CF;
   --maroon:#721907; --gold:#B8892B; --grey:#7E6F77; --cream:#F6EDD6; --band:#FBF8F0; --band-line:#EFE3C2;
   --main:#721907; --on-main:#FFFFFF; --on-main-2:#F1D9A0; --google:#4285F4;
   --seg-home:#721907; --seg-seo:#B8892B; --seg-seo-2:#DCC48A; --seg-gs:#5E5258; --seg-blog:#8A5A48; --seg-ink-light:#FFFFFF; --seg-ink-dark:#2B1620;
   --f-body:"Google Sans Flex","Be Vietnam Pro",system-ui,sans-serif;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#171112; --surface:#221A1B; --ink:#F2E8E2; --muted:#B7A8A5; --line:#47393A;
-  --maroon:#E58E73; --gold:#D8B25E; --grey:#A89BA2; --cream:#352720; --band:#1E1716; --band-line:#3E3129;
-  --main:#8E2E14; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#171112; --surface:#221A1B; --ink:#F2E8E2; --muted:#B7A8A5; --line:#47393A;
-  --maroon:#E58E73; --gold:#D8B25E; --grey:#A89BA2; --cream:#352720; --band:#1E1716; --band-line:#3E3129;
-  --main:#8E2E14; color-scheme:dark}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
-.wrap{max-width:1280px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:14px;line-height:1.5}
+.wrap{max-width:1600px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon)}
 h1,h2,h3{margin:0;text-wrap:balance}
-h1{font-size:26px;font-weight:800;color:var(--maroon)}
-h2{font-size:20px;font-weight:800;color:var(--ink)}
-h3{font-size:15px;font-weight:800;color:var(--ink)}
-.card{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;min-width:0}
+h1{font-size:25px;line-height:32px;letter-spacing:.6px;font-weight:700;color:var(--maroon)}
+h2{font-size:19px;line-height:26px;font-weight:700;color:var(--ink)}
+h3{font-size:15px;line-height:21px;font-weight:700;color:var(--ink)}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:28px;box-shadow:0 6px 24px rgba(114,25,7,.07);min-width:0}
 .card-head{padding:18px 20px 0;display:flex;flex-direction:column;gap:2px}
 .diagram{overflow-x:auto;padding:8px}
 .diagram svg{display:block;min-width:1100px;width:100%;height:auto}
 svg text{font-family:var(--f-body)}
-.lane{font-size:13px;font-weight:800;letter-spacing:.1em;fill:var(--maroon)}
+.lane{font-size:13px;font-weight:700;letter-spacing:.1em;fill:var(--maroon)}
 .lane-sub{font-size:12px;fill:var(--muted)}
 .sep{stroke:var(--band-line);stroke-dasharray:4 6}
 .band{fill:var(--band);stroke:var(--band-line)}
@@ -41,14 +33,14 @@ svg text{font-family:var(--f-body)}
 .node.main rect.box{fill:var(--main);stroke:var(--main)}
 .node.main .n-title{fill:var(--on-main)}
 .node.main .n-url,.node.main .n-topic,.node.main .n-strong{fill:var(--on-main-2)}
-.n-title{font-size:15px;font-weight:700;fill:var(--ink)}
+.n-title{font-size:18px;font-weight:700;fill:var(--ink)}
 .n-url{font-size:11.5px;fill:var(--maroon)}
-.n-topic{font-size:12px;fill:var(--muted)}
-.n-strong{font-size:12px;font-weight:700;fill:var(--ink)}
+.n-topic{font-size:12.5px;fill:var(--muted)}
+.n-strong{font-size:12.5px;font-weight:700;fill:var(--ink)}
 .tag rect{fill:var(--cream);stroke:none} .tag text{font-size:11px;font-weight:700;fill:var(--maroon)}
 .chip rect{fill:var(--surface);stroke:var(--band-line);stroke-width:1.4}
-.chip .c-name{font-size:13px;font-weight:700;fill:var(--ink)}
-.chip .c-num{font-size:12px;font-weight:800;fill:var(--maroon)}
+.chip .c-name{font-size:14px;font-weight:700;fill:var(--ink)}
+.chip .c-num{font-size:12px;font-weight:700;fill:var(--maroon)}
 .chip .c-url{font-size:10px;fill:var(--maroon)}
 .e-home{fill:none;stroke:var(--maroon);stroke-width:2.4}
 .e-t2{fill:none;stroke:var(--gold);stroke-width:2.2}
@@ -74,13 +66,13 @@ svg text{font-family:var(--f-body)}
 .rules{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:14px;max-width:84ch}
 .rules b{color:var(--maroon)}
 .table-box{overflow-x:auto;border:1.5px solid var(--line);border-radius:12px}
-table{border-collapse:collapse;width:100%;min-width:680px;font-size:13.5px;font-variant-numeric:tabular-nums}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:12.5px;font-variant-numeric:tabular-nums}
 th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
 th{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--maroon);background:var(--cream)}
 td.num,th.num{text-align:right;white-space:nowrap}
 td .sub{display:block;font-size:12px;color:var(--muted)}
 td.url{color:var(--maroon);font-size:12.5px;white-space:nowrap}
-tr.total td{font-weight:800;border-bottom:0}
+tr.total td{font-weight:700;border-bottom:0}
 .foot{font-size:13px;color:var(--muted);margin:0;max-width:90ch}
 </style>
 
