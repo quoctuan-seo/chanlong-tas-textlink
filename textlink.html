@@ -1,0 +1,310 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Sơ đồ textlink Chan Long</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700;800&display=swap">
+<style>
+/* Layout: khung trang PLSB (thẻ sơ đồ 1 + thẻ phân bổ sidebar), màu đồng bộ mô hình TAS Chan Long: đỏ nâu link về site, vàng link nuôi, kem tầng đích */
+:root{
+  --bg:#F6F1E7; --surface:#FFFFFF; --ink:#2B1620; --muted:#6F6168; --line:#E6DCC4;
+  --maroon:#721907; --gold:#B8892B; --grey:#7E6F77; --cream:#F6EDD6; --band:#FBF8F0; --band-line:#EFE3C2;
+  --main:#721907; --on-main:#FFFFFF; --on-main-2:#F1D9A0; --google:#4285F4;
+  --seg-home:#721907; --seg-seo:#B8892B; --seg-seo-2:#DCC48A; --seg-gs:#5E5258; --seg-blog:#8A5A48; --seg-ink-light:#FFFFFF; --seg-ink-dark:#2B1620;
+  --f-body:"Google Sans Flex","Be Vietnam Pro",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#171112; --surface:#221A1B; --ink:#F2E8E2; --muted:#B7A8A5; --line:#47393A;
+  --maroon:#E58E73; --gold:#D8B25E; --grey:#A89BA2; --cream:#352720; --band:#1E1716; --band-line:#3E3129;
+  --main:#8E2E14; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#171112; --surface:#221A1B; --ink:#F2E8E2; --muted:#B7A8A5; --line:#47393A;
+  --maroon:#E58E73; --gold:#D8B25E; --grey:#A89BA2; --cream:#352720; --band:#1E1716; --band-line:#3E3129;
+  --main:#8E2E14; color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55}
+.wrap{max-width:1280px;margin:0 auto;padding-inline:16px;padding-block:28px 56px;display:flex;flex-direction:column;gap:28px}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--maroon)}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-size:26px;font-weight:800;color:var(--maroon)}
+h2{font-size:20px;font-weight:800;color:var(--ink)}
+h3{font-size:15px;font-weight:800;color:var(--ink)}
+.card{background:var(--surface);border:1.5px solid var(--line);border-radius:18px;min-width:0}
+.card-head{padding:18px 20px 0;display:flex;flex-direction:column;gap:2px}
+.diagram{overflow-x:auto;padding:8px}
+.diagram svg{display:block;min-width:1100px;width:100%;height:auto}
+svg text{font-family:var(--f-body)}
+.lane{font-size:13px;font-weight:800;letter-spacing:.1em;fill:var(--maroon)}
+.lane-sub{font-size:12px;fill:var(--muted)}
+.sep{stroke:var(--band-line);stroke-dasharray:4 6}
+.band{fill:var(--band);stroke:var(--band-line)}
+.band-label{font-size:11px;font-weight:700;letter-spacing:.12em;fill:var(--gold)}
+.node rect.box{fill:var(--surface);stroke:var(--maroon);stroke-width:2}
+.node.home rect.box{fill:var(--cream)}
+.node.main rect.box{fill:var(--main);stroke:var(--main)}
+.node.main .n-title{fill:var(--on-main)}
+.node.main .n-url,.node.main .n-topic,.node.main .n-strong{fill:var(--on-main-2)}
+.n-title{font-size:15px;font-weight:700;fill:var(--ink)}
+.n-url{font-size:11.5px;fill:var(--maroon)}
+.n-topic{font-size:12px;fill:var(--muted)}
+.n-strong{font-size:12px;font-weight:700;fill:var(--ink)}
+.tag rect{fill:var(--cream);stroke:none} .tag text{font-size:11px;font-weight:700;fill:var(--maroon)}
+.chip rect{fill:var(--surface);stroke:var(--band-line);stroke-width:1.4}
+.chip .c-name{font-size:13px;font-weight:700;fill:var(--ink)}
+.chip .c-num{font-size:12px;font-weight:800;fill:var(--maroon)}
+.chip .c-url{font-size:10px;fill:var(--maroon)}
+.e-home{fill:none;stroke:var(--maroon);stroke-width:2.4}
+.e-t2{fill:none;stroke:var(--gold);stroke-width:2.2}
+.mk-home{fill:var(--maroon)} .mk-t2{fill:var(--gold)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;padding:4px 20px 16px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:26px;height:0;border-top:2.4px solid}
+
+/* Thẻ phân bổ sidebar */
+.body{padding:14px 20px 20px;display:flex;flex-direction:column;gap:20px}
+.lead{margin:0;max-width:72ch;color:var(--ink)}
+.split{display:flex;flex-direction:column;gap:8px}
+.split-bar{display:flex;height:34px;border-radius:8px;overflow:hidden}
+.split-bar span{display:flex;align-items:center;padding-inline:10px;font-size:12.5px;font-weight:700;white-space:nowrap;overflow:hidden;font-variant-numeric:tabular-nums}
+.seg-home{background:var(--seg-home);color:var(--seg-ink-light);flex:30 1 0}
+.seg-vot{background:var(--seg-seo);color:var(--seg-ink-dark);flex:25 1 0}
+.seg-bong{background:var(--seg-seo-2);color:var(--seg-ink-dark);flex:15 1 0}
+.seg-sub{background:var(--seg-gs);color:var(--seg-ink-light);flex:20 1 0}
+.seg-blog{background:var(--seg-blog);color:var(--seg-ink-light);flex:10 1 0}
+.split-note{font-size:13px;color:var(--muted)}
+.cols{display:flex;flex-direction:column;gap:22px}
+.block{display:flex;flex-direction:column;gap:10px;min-width:0}
+.rules{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:14px;max-width:84ch}
+.rules b{color:var(--maroon)}
+.table-box{overflow-x:auto;border:1.5px solid var(--line);border-radius:12px}
+table{border-collapse:collapse;width:100%;min-width:680px;font-size:13.5px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:12px;font-weight:700;letter-spacing:.04em;color:var(--maroon);background:var(--cream)}
+td.num,th.num{text-align:right;white-space:nowrap}
+td .sub{display:block;font-size:12px;color:var(--muted)}
+td.url{color:var(--maroon);font-size:12.5px;white-space:nowrap}
+tr.total td{font-weight:800;border-bottom:0}
+.foot{font-size:13px;color:var(--muted);margin:0;max-width:90ch}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Chan Long Pickleball · chanlongpickleball.com</div>
+    <h1>Sơ đồ textlink Chan Long</h1>
+  </header>
+
+  <section class="card">
+    <div class="card-head"><div class="eyebrow">Sơ đồ 1</div><h2>Building textlink tầng</h2></div>
+    <div class="diagram" id="d-tas"></div>
+    <div class="legend">
+      <span><i style="border-color:var(--maroon)"></i>Tier 1 trỏ trang chủ, blog core, cate hoặc subcate</span>
+      <span><i style="border-color:var(--gold)"></i>Tier 2 nuôi Tier 1</span>
+      <span>Blog core dẫn link nội bộ về cate, subcate</span>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="card-head"><div class="eyebrow">Sidebar · bản sửa theo feedback</div><h2>Gói thử 1.000 textlink sidebar</h2></div>
+    <div class="body">
+      <p class="lead">Phân bổ ghi bằng %, chia theo độ sát theme pickleball của site nguồn. Trang chủ giữ 30% phần đi thẳng để an toàn và đi trước bằng anchor thương hiệu. 70% còn lại về URL SEO (cate, subcate, blog core), site càng sát pickleball càng được trỏ vào URL hẹp hơn. Site lệch xa chủ đề thể thao không trỏ thẳng Chan Long mà đi qua Google Sites.</p>
+
+      <div class="split" aria-label="Phân bổ 1.000 suất sidebar">
+        <div class="split-bar">
+          <span class="seg-home">Trang chủ 30%</span>
+          <span class="seg-vot">Cate vợt 25%</span>
+          <span class="seg-bong">Cate bóng 15%</span>
+          <span class="seg-sub">6 subcate 20%</span>
+          <span class="seg-blog">Blog 10%</span>
+        </div>
+        <div class="split-note">Thanh trên là 800 suất đi thẳng Chan Long: trang chủ 240, cate vợt 200, cate bóng 120, 6 subcate 160, 5 blog core 80. Ngoài ra 200 suất site lệch xa đi qua Google Sites, tổng gói 1.000.</div>
+      </div>
+
+      <div class="cols">
+        <div class="block">
+          <h3>Chia % theo độ sát theme pickleball của site nguồn</h3>
+          <div class="table-box">
+            <table>
+              <thead>
+                <tr><th>Độ sát theme của site nguồn</th><th>Được trỏ vào</th><th class="num">% phần đi thẳng</th><th class="num">Suất</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Sát pickleball, bài nói đúng hãng</td><td>6 subcate hãng</td><td class="num">20%</td><td class="num">160</td></tr>
+                <tr><td>Sát pickleball</td><td>Cate vợt 25% · cate bóng 15% · blog core 10%</td><td class="num">50%</td><td class="num">400</td></tr>
+                <tr><td>Thể thao chung trở lên</td><td>Trang chủ, anchor thương hiệu</td><td class="num">30%</td><td class="num">240</td></tr>
+                <tr class="total"><td>Phần đi thẳng Chan Long</td><td></td><td class="num">100%</td><td class="num">800</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="foot">Site lệch xa chủ đề thể thao không tính vào phần đi thẳng: 200 suất trỏ vào 2 bài Google Sites, rồi Google Sites dẫn về cate. Site sát hơn dùng được cho mức rộng hơn (site pickleball đặt link trang chủ được), không đi ngược lại. Thiếu site đúng hãng thì suất subcate chuyển về cate vợt; thiếu site sát pickleball thì không lấy site thể thao chung bù vào URL SEO.</p>
+        </div>
+
+        <div class="block">
+          <h3>Quy tắc đặt link</h3>
+          <ol class="rules">
+            <li><b>Trang chủ đi trước.</b> Đợt 1 chỉ đặt 100 link về trang chủ, anchor thương hiệu: Chan Long, Chan Long Pickleball, chanlongpickleball.com.</li>
+            <li><b>Không đặt thẳng gói sidebar vào URL SEO ngay.</b> Cate và subcate mở từ đợt 2.</li>
+            <li><b>Trang chủ giữ 30%.</b> Trang chủ chiếm 30% phần đi thẳng. Tính cộng dồn, tỷ lệ trang chủ không lúc nào xuống dưới 30%: hết đợt 1 là 100%, hết đợt 2 là 42%, hết đợt 3 là 30%.</li>
+            <li><b>URL SEO chỉ nhận site sát pickleball.</b> Anchor mô tả hoặc khớp một phần. Subcate hãng chỉ đặt khi bài nguồn nói đúng hãng. Blog core phải có sẵn link nội bộ về cate hoặc subcate trước khi nhận link.</li>
+            <li><b>Lệch xa chủ đề thể thao đi qua Tier 1.</b> Không trỏ thẳng Chan Long, chỉ trỏ vào 2 bài trên Google Sites.</li>
+            <li><b>An toàn mới nâng.</b> Hết gói 1.000 và đối chiếu Search Console xong mới xét gói sau, tăng tỷ lệ URL SEO từ từ.</li>
+          </ol>
+        </div>
+
+        <div class="block">
+          <h3>Nhịp 3 đợt</h3>
+          <div class="table-box">
+            <table>
+              <thead>
+                <tr><th>Đợt</th><th class="num">Trang chủ · 30%</th><th class="num">Cate vợt · 25%</th><th class="num">Cate bóng · 15%</th><th class="num">6 subcate · 20%</th><th class="num">Blog core · 10%</th><th class="num">Qua Google Sites<br>vợt / bóng</th><th class="num">Tổng</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>1 · T0<span class="sub">chỉ trang chủ</span></td><td class="num">100</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">100</td></tr>
+                <tr><td>2<span class="sub">sau nghiệm thu đợt 1</span></td><td class="num">60</td><td class="num">79</td><td class="num">47</td><td class="num">63</td><td class="num">31</td><td class="num">70<span class="sub">42 / 28</span></td><td class="num">350</td></tr>
+                <tr><td>3<span class="sub">sau nghiệm thu đợt 2</span></td><td class="num">80</td><td class="num">121</td><td class="num">73</td><td class="num">97</td><td class="num">49</td><td class="num">130<span class="sub">78 / 52</span></td><td class="num">550</td></tr>
+                <tr class="total"><td>Tổng</td><td class="num">240</td><td class="num">200</td><td class="num">120</td><td class="num">160</td><td class="num">80</td><td class="num">200<span class="sub">120 / 80</span></td><td class="num">1.000</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="foot">Nghiệm thu một đợt: link còn sống, trang nguồn đã index, vị trí trang đích trên Search Console không tụt. % ở tiêu đề cột tính trên 800 suất đi thẳng.</p>
+        </div>
+
+        <div class="block">
+          <h3>Chia 20% subcate cho 6 hãng</h3>
+          <div class="table-box">
+            <table>
+              <thead>
+                <tr><th>Subcate</th><th>URL</th><th class="num">% trong subcate</th><th class="num">Đợt 2</th><th class="num">Đợt 3</th><th class="num">Tổng</th><th>Cơ sở · volume từ khoá hãng</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Joola</td><td class="url">/vot-pickleball-joola/</td><td class="num">35%</td><td class="num">22</td><td class="num">34</td><td class="num">56</td><td>vợt joola 4.700 · vợt pickleball joola 1.400</td></tr>
+                <tr><td>Selkirk</td><td class="url">/vot-pickleball-selkirk/</td><td class="num">20%</td><td class="num">13</td><td class="num">19</td><td class="num">32</td><td>vợt selkirk 1.100 · vợt pickleball selkirk 600</td></tr>
+                <tr><td>Proton</td><td class="url">/vot-pickleball-proton/</td><td class="num">15%</td><td class="num">9</td><td class="num">15</td><td class="num">24</td><td>vợt pickleball proton 800</td></tr>
+                <tr><td>Gearbox</td><td class="url">/vot-pickleball-gearbox/</td><td class="num">10%</td><td class="num">7</td><td class="num">9</td><td class="num">16</td><td>vợt pickleball gearbox 350</td></tr>
+                <tr><td>Franklin</td><td class="url">/vot-pickleball-franklin/</td><td class="num">10%</td><td class="num">6</td><td class="num">10</td><td class="num">16</td><td>vợt pickleball franklin 300</td></tr>
+                <tr><td>CRBN</td><td class="url">/vot-pickleball-crbn/</td><td class="num">10%</td><td class="num">6</td><td class="num">10</td><td class="num">16</td><td>vợt pickleball crbn 300</td></tr>
+                <tr class="total"><td>Tổng</td><td></td><td class="num">100%</td><td class="num">63</td><td class="num">97</td><td class="num">160</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="foot">Volume Ahrefs Việt Nam, đo 08/10/2026. Hãng nhỏ có sàn 10%, phần còn lại chia theo volume. Báo PR giữ phân bổ cũ cho hãng: Joola 3 link, hãng khác 1 link.</p>
+        </div>
+
+        <div class="block">
+          <h3>Chia 10% blog core cho 5 bài</h3>
+          <div class="table-box">
+            <table>
+              <thead>
+                <tr><th>Bài</th><th>URL</th><th class="num">% trong blog core</th><th class="num">Đợt 2</th><th class="num">Đợt 3</th><th class="num">Tổng</th><th>Cụm trong Blog Mind Map</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Pickleball là gì</td><td class="url">/blogs/pickleball-la-gi/</td><td class="num">30%</td><td class="num">9</td><td class="num">15</td><td class="num">24</td><td>Kiến thức pickleball · pillar · dẫn về cate vợt, cate bóng</td></tr>
+                <tr><td>Vợt pickleball tốt nhất hiện nay</td><td class="url">/blogs/top-vot-pickleball-tot-nhat-hien-nay/</td><td class="num">20%</td><td class="num">6</td><td class="num">10</td><td class="num">16</td><td>Toplist vợt · ưu tiên 1 · dẫn về cate vợt</td></tr>
+                <tr><td>Mua vợt pickleball ở đâu uy tín</td><td class="url">/blogs/mua-vot-pickleball-o-dau-uy-tin/</td><td class="num">20%</td><td class="num">6</td><td class="num">10</td><td class="num">16</td><td>Địa chỉ mua · ưu tiên 1 · dẫn về cate vợt</td></tr>
+                <tr><td>Top hãng vợt pickleball</td><td class="url">/blogs/top-hang-vot-pickleball/</td><td class="num">15%</td><td class="num">5</td><td class="num">7</td><td class="num">12</td><td>Đánh giá theo hãng · ưu tiên 2 · dẫn về 6 subcate</td></tr>
+                <tr><td>Bóng pickleball hãng nào tốt</td><td class="url">/blogs/bong-pickleball-hang-nao-tot/</td><td class="num">15%</td><td class="num">5</td><td class="num">7</td><td class="num">12</td><td>Bóng pickleball · ưu tiên 5 · dẫn về cate bóng</td></tr>
+                <tr class="total"><td>Tổng</td><td></td><td class="num">100%</td><td class="num">31</td><td class="num">49</td><td class="num">80</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="foot">4 bài mua sắm đã xuất bản trong Blog Mind Map Plan, mỗi bài dẫn về một nhóm đích (cate vợt, 6 subcate, cate bóng), cộng bài pillar "Pickleball là gì" đứng cao nhất (30%) vì là cửa vào của cả site cho người mới. Không đưa "Cách chọn vợt pickleball" vì bài đã đứng hạng 1. Blog core chỉ nhận link từ Sidebar SEO, Báo PR không trỏ vào. Bài nào chưa có link nội bộ về cate, subcate thì bổ sung trước đợt 2.</p>
+        </div>
+      </div>
+
+      <p class="foot">So với bản 07/10: bỏ tool Strikingly và 50 PBN chỉ dùng để đẩy tool. Sidebar đi thẳng đổi từ vợt 440 / bóng 320 / hãng 40 sang trang chủ 30% / cate vợt 25% / cate bóng 15% / 6 subcate 20% / 5 blog core 10% (240 / 200 / 120 / 160 / 80). Google Sites giữ 200 suất, cần thêm link cate vào 2 bài trước khi nhận. Báo PR, toplist, 2 textlink chuyên mục giữ nguyên. Ngân sách còn 9.000.000đ vì bỏ Strikingly Pro và PBN.</p>
+    </div>
+  </section>
+</div>
+
+<script>
+const DOT={google:"var(--google)",grey:"var(--grey)",gold:"var(--gold)"};
+function el(tag,attrs,parent){const e=document.createElementNS("http://www.w3.org/2000/svg",tag);for(const k in attrs)e.setAttribute(k,attrs[k]);if(parent)parent.appendChild(e);return e}
+function txt(parent,x,y,cls,s,anchor){const t=el("text",{x,y,class:cls},parent);if(anchor)t.setAttribute("text-anchor",anchor);t.textContent=s;return t}
+function defs(svg){const d=el("defs",{},svg);for(const k of ["home","t2"]){const m=el("marker",{id:"mk-"+k,viewBox:"0 0 10 10",refX:"9",refY:"5",markerWidth:"7",markerHeight:"7",orient:"auto-start-reverse"},d);el("path",{d:"M0,0 L10,5 L0,10 z",class:"mk-"+k},m)}}
+function drawNodes(svg,N){
+  for(const id in N){
+    const n=N[id];const g=el("g",{class:"node "+(n.cls||"")},svg);
+    el("rect",{x:n.x,y:n.y,width:n.w,height:n.h,rx:12,class:"box"},g);
+    let tx=n.x+18;
+    if(n.dot){el("circle",{cx:n.x+20,cy:n.y+27,r:6,fill:DOT[n.dot]},g);tx=n.x+34}
+    txt(g,tx,n.y+32,"n-title",n.title);
+    if(n.tag){const w=n.tag.length*6.6+16;const tg=el("g",{class:"tag"},g);el("rect",{x:n.x+n.w-w-12,y:n.y+15,width:w,height:21,rx:10.5},tg);txt(tg,n.x+n.w-12-w/2,n.y+29.5,"",n.tag,"middle")}
+    n.lines.forEach(([c,s],i)=>txt(g,n.x+18,n.y+56+i*19,c,s));
+    if(n.center)g.querySelectorAll(":scope > text").forEach(t=>{t.setAttribute("x",n.x+n.w/2);t.setAttribute("text-anchor","middle")});
+  }
+}
+function drawEdges(svg,E){for(const [cls,k,d] of E)el("path",{d,class:cls,"marker-end":"url(#mk-"+k+")"},svg)}
+
+/* Khối 6 subcate hãng ở tầng đích */
+function drawSubcates(svg,x,y,w,h,items){
+  const g=el("g",{class:"node home"},svg);
+  el("rect",{x,y,width:w,height:h,rx:12,class:"box"},g);
+  txt(g,x+18,y+28,"n-title","Subcate vợt theo hãng · 6");
+  txt(g,x+w-18,y+28,"n-topic","nhận Sidebar SEO 20%, Báo PR","end");
+  const cw=(w-32-20)/3,ch=50;
+  items.forEach(([name,num,url],i)=>{
+    const cx=x+16+(i%3)*(cw+10),cy=y+44+Math.floor(i/3)*(ch+8);
+    const c=el("g",{class:"chip"},g);
+    el("rect",{x:cx,y:cy,width:cw,height:ch,rx:9},c);
+    txt(c,cx+12,cy+20,"c-name",name);
+    txt(c,cx+cw-12,cy+20,"c-num",num,"end");
+    txt(c,cx+12,cy+38,"c-url",url);
+  });
+}
+/* Khối blog core ở tầng đích */
+function drawBlogs(svg,x,y,w,h,items){
+  const g=el("g",{class:"node home"},svg);
+  el("rect",{x,y,width:w,height:h,rx:12,class:"box"},g);
+  txt(g,x+18,y+28,"n-title","Blog core · 5 bài");
+  txt(g,x+w-18,y+28,"n-topic","Sidebar SEO 10%","end");
+  items.forEach(([name,pct],i)=>{
+    const ly=y+56+i*21;
+    txt(g,x+18,ly,"n-topic",name);
+    txt(g,x+w-18,ly,"c-num",pct,"end");
+  });
+}
+
+/* ---------- Sơ đồ 1: textlink tầng ---------- */
+function drawTAS(){
+  const svg=el("svg",{viewBox:"0 0 1710 640",role:"img","aria-label":"Sơ đồ building textlink tầng Chan Long: 5 nguồn Tier 1 trỏ về trang chủ, blog core, 6 subcate hãng, cate vợt và cate bóng; sidebar lệch theme ở Tier 2 nuôi Google Sites"});defs(svg);
+  for(const [a,b,y] of [["TẦNG ĐÍCH","trang chủ · blog · cate",104],["TIER 1","5 nguồn trỏ thẳng",336],["TIER 2","nuôi tier 1 · 1",540]]){txt(svg,24,y,"lane",a);txt(svg,24,y+20,"lane-sub",b)}
+  for(const y of [234,448])el("line",{x1:180,x2:1690,y1:y,y2:y,class:"sep"},svg);
+  el("rect",{x:180,y:258,width:1520,height:170,rx:16,class:"band"},svg);
+  txt(svg,196,420,"band-label","SIDEBAR ĐI THẲNG: 30% VỀ TRANG CHỦ · 70% VỀ URL SEO ĐÚNG THEME (CATE, SUBCATE, BLOG CORE)");
+  drawEdges(svg,[
+    ["e-home","home","M286,276 V192"],
+    ["e-home","home","M540,276 C540,240 345,234 345,192"],
+    ["e-home","home","M680,276 C680,238 770,234 770,192"],
+    ["e-home","home","M705,276 C705,232 1260,240 1260,192"],
+    ["e-home","home","M725,276 C725,224 1480,244 1480,192"],
+    ["e-home","home","M850,276 C850,238 670,234 670,192"],
+    ["e-home","home","M940,276 V192"],
+    ["e-home","home","M1000,276 C1000,236 1290,238 1290,192"],
+    ["e-home","home","M1030,276 C1030,228 1510,242 1510,192"],
+    ["e-home","home","M1330,276 V192"],
+    ["e-home","home","M1360,276 C1360,236 1545,236 1545,192"],
+    ["e-home","home","M1495,276 C1495,236 1415,236 1415,192"],
+    ["e-home","home","M1600,276 V192"],
+    ["e-t2","t2","M1263,478 V402"]
+  ]);
+  drawNodes(svg,{
+    home:{x:196,y:36,w:180,h:156,cls:"home",title:"/ (trang chủ)",lines:[["n-url","chanlongpickleball.com"],["n-topic","nhận Sidebar brand 30%,"],["n-topic","Báo PR, Toplist"]]},
+    vot:{x:1238,y:36,w:210,h:156,cls:"main",title:"Cate vợt · URL chính",lines:[["n-url","/vot-pickleball/"],["n-topic","nhận 4 nguồn"],["n-strong","Sidebar SEO 25%"]]},
+    bong:{x:1462,y:36,w:210,h:156,cls:"home",title:"Cate bóng",lines:[["n-url","/bong-pickleball/"],["n-topic","nhận 4 nguồn"],["n-strong","Sidebar SEO 15%"]]},
+    sbh:{x:196,y:276,w:226,h:126,dot:"grey",title:"Sidebar brand",tag:"30%",lines:[["n-topic","Site thể thao trở lên"],["n-topic","Anchor: Chan Long, URL"],["n-topic","Đi trước ở đợt 1"],["n-strong","→ trang chủ"]]},
+    pr:{x:514,y:276,w:226,h:126,dot:"grey",title:"Báo PR",tag:"theo báo",lines:[["n-topic","Gói PR theo báo"],["n-topic","Báo Pháp luật"],["n-topic","Toplist Mytour, Hanoireview"],["n-strong","→ trang chủ, cate, subcate"]]},
+    sbt:{x:832,y:276,w:226,h:126,dot:"grey",title:"Sidebar SEO",tag:"70%",lines:[["n-topic","Site sát pickleball"],["n-topic","Mở từ đợt 2 · blog 10%"],["n-topic","vợt 25 · bóng 15 · hãng 20%"],["n-strong","→ cate, subcate, blog"]]},
+    gs:{x:1150,y:276,w:226,h:126,dot:"google",title:"Google Sites",tag:"DR 100",lines:[["n-url","sites.google.com/view/"],["n-url","chanlongpickleball"],["n-topic","Bài chọn vợt · chọn bóng"],["n-strong","→ cate vợt, cate bóng"]]},
+    cm:{x:1468,y:276,w:226,h:126,dot:"gold",title:"Chuyên mục",tag:"thể thao",lines:[["n-topic","Chuyên mục thể thao"],["n-topic","Ngoài gói sidebar"],["n-topic","Đà Nẵng → cate vợt"],["n-topic","Cần Thơ → cate bóng"]]},
+    lech:{x:1150,y:478,w:226,h:126,dot:"grey",title:"Lệch theme",tag:"lệch xa",lines:[["n-topic","Lệch xa chủ đề thể thao"],["n-topic","Trỏ bài chọn vợt"],["n-topic","Trỏ bài chọn bóng"],["n-strong","→ Google Sites"]]}
+  });
+  drawBlogs(svg,390,36,320,156,[
+    ["Pickleball là gì","30%"],["Vợt pickleball tốt nhất hiện nay","20%"],["Mua vợt pickleball ở đâu uy tín","20%"],
+    ["Top hãng vợt pickleball","15%"],["Bóng pickleball hãng nào tốt","15%"]
+  ]);
+  drawSubcates(svg,724,36,500,156,[
+    ["Joola","35%","/vot-pickleball-joola/"],["Selkirk","20%","/vot-pickleball-selkirk/"],["Proton","15%","/vot-pickleball-proton/"],
+    ["Gearbox","10%","/vot-pickleball-gearbox/"],["Franklin","10%","/vot-pickleball-franklin/"],["CRBN","10%","/vot-pickleball-crbn/"]
+  ]);
+  document.getElementById("d-tas").appendChild(svg);
+}
+drawTAS();
+</script>
+
+</body></html>
