@@ -5,11 +5,11 @@
 </style></head><body>
 <header><div class="brand">CHAN LONG PICKLEBALL<small>Hai mô hình · Một trang xem</small></div>
 <nav aria-label="Chọn mô hình"><a href="#tas" id="nav-tas" aria-current="page">01 · Mô hình TAS</a><a href="#textlink" id="nav-textlink">02 · Sơ đồ Textlink</a></nav>
-<div class="actions"><button id="fit" type="button" aria-pressed="true">Vừa màn hình</button><a class="separate" id="separate" href="tas.html" target="_blank" rel="noopener">Mở riêng ↗</a></div></header>
-<iframe id="model" title="Mô hình TAS Chan Long" src="tas.html"></iframe>
+<div class="actions"><button id="fit" type="button" aria-pressed="true">Vừa màn hình</button><a class="separate" id="separate" href="tas.html?v=ad33b5c02c" target="_blank" rel="noopener">Mở riêng ↗</a></div></header>
+<iframe id="model" title="Mô hình TAS Chan Long" src="tas.html?v=ad33b5c02c"></iframe>
 <script>
 const frame=document.getElementById('model'),fitButton=document.getElementById('fit');let fit=true;
 function size(){const doc=frame.contentDocument;if(!doc||!doc.body)return;doc.body.style.zoom='1';if(fit&&location.hash!=='#textlink'){const width=Math.max(doc.body.scrollWidth,1640);doc.body.style.zoom=String(Math.min(1,frame.clientWidth/width));}}
-function show(){const key=location.hash==='#textlink'?'textlink':'tas';for(const id of ['tas','textlink']){const link=document.getElementById('nav-'+id);if(id===key)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}const file=key+'.html'+(key==='textlink'?'?v=3539d21ffb':'');if(frame.getAttribute('src')!==file)frame.src=file;frame.title=key==='tas'?'Mô hình TAS Chan Long':'Sơ đồ textlink Chan Long';document.getElementById('separate').href=file;fitButton.hidden=key==='textlink';size();}
+function show(){const key=location.hash==='#textlink'?'textlink':'tas';for(const id of ['tas','textlink']){const link=document.getElementById('nav-'+id);if(id===key)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');}const file=key+'.html?v='+(key==='textlink'?'acf7a555cb':'ad33b5c02c');if(frame.getAttribute('src')!==file)frame.src=file;frame.title=key==='tas'?'Mô hình TAS Chan Long':'Sơ đồ textlink Chan Long';document.getElementById('separate').href=file;fitButton.hidden=key==='textlink';size();}
 fitButton.addEventListener('click',()=>{fit=!fit;fitButton.setAttribute('aria-pressed',String(fit));fitButton.textContent=fit?'Vừa màn hình':'Kích thước 100%';size();});frame.addEventListener('load',size);window.addEventListener('resize',size);window.addEventListener('hashchange',show);show();
 </script></body></html>
