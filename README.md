@@ -11,3 +11,7 @@ Trang mặc định mở TAS; `#textlink` mở tab Textlink. Nút “Mở riêng
 Để xem trên máy: `python3 -m http.server 8767`, sau đó mở `http://localhost:8767/`.
 
 GitHub Pages: dùng nhánh `main`, thư mục `/ (root)`.
+
+## Cập nhật 29/10/2026
+
+Tab TAS được thay bằng mẫu “Mô hình TAS-html/Main.dc.html” người dùng cung cấp: Cloudflare, Odoo, GitHub, GitLab Pages và Netlify. Giữ nguyên nội dung, tọa độ, đường nối và bảng màu của mẫu; dùng HTML/SVG tĩnh với phông sẵn có, không cần runtime xuất thiết kế. Textlink giữ nguyên.
